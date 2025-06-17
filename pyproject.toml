@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "customtkinter>=5.2.2",
+    "pydantic>=2.11.7",
     "pyyaml>=6.0.2",
     "tomlkit>=0.13.2",
     "tzdata>=2025.2",

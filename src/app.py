@@ -11,7 +11,7 @@ import customtkinter as ctk
 from lib.common.decorator import process_time, save_params_log
 from lib.common.file import load_yaml
 from lib.common.log import SetLogging
-from lib.common.types import THEME_DATA_TYPE, SideBarFrameName
+from lib.common.types import THEME_DATA_TYPE, ParamLog, SideBarFrameName
 from lib.common.types import EventName as E
 from lib.common.types import ParamKey as K
 from lib.components.base import EventBus
@@ -19,7 +19,6 @@ from lib.components.sidebar import SideBar
 from lib.pages.home import FIRST_PAGE_NAME, HomePage
 from lib.pages.sample import SamplePage
 from lib.pages.setting import SettingPage
-from lib.settings import ParamLog
 
 if TYPE_CHECKING:
     from lib.pages.base import BasePage
@@ -156,27 +155,56 @@ def set_params() -> dict[str, Any]:
         you don't necessarily need to use command line arguments.
     """
     # set the command line arguments.
-    parser = argparse.ArgumentParser()
-    # log level (idx=0: stream handler, idx=1: file handler)
-    # (DEBUG: 10, INFO: 20, WARNING: 30, ERROR: 40, CRITICAL: 50)
-    choices = [10, 20, 30, 40, 50]
-    parser.add_argument('--level', default=[20, 20], type=int, nargs=2, choices=choices)
-    # file path (parameters)
-    parser.add_argument('--param', default='param/param.yaml', type=str)
-    # directory path (data save)
-    parser.add_argument('--result', default='result', type=str)
-    # mode (system/light/dark)
-    choices = ['system', 'light', 'dark']
-    parser.add_argument('--mode', default='system', type=str, choices=choices)
-    # theme color (blue/dark-blue/green)
-    parser.add_argument('--theme', default='blue', type=str)
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
+    parser.add_argument(
+        f'--{K.HANDLER}',
+        default=[True, True], type=bool, nargs=2,
+        help=(
+            f'The log handler flag to use.\n'
+            f'True: set handler, False: not set handler\n'
+            f'ex) --{K.HANDLER} arg1 arg2 (arg1: stream handler, arg2: file handler)'
+        ),
+    )
+    parser.add_argument(
+        f'--{K.LEVEL}',
+        default=[20, 20], type=int, nargs=2, choices=[10, 20, 30, 40, 50],
+        help=(
+            f'The log level.\n'
+            f'DEBUG: 10, INFO: 20, WARNING: 30, ERROR: 40, CRITICAL: 50\n'
+            f'ex) --{K.LEVEL} arg1 arg2 (arg1: stream handler, arg2: file handler)'
+        ),
+    )
+    parser.add_argument(
+        f'--{K.PARAM}',
+        default='param/param.yaml', type=str,
+        help=('The parameter file path.'),
+    )
+    parser.add_argument(
+        f'--{K.RESULT}',
+        default='result', type=str,
+        help=('The directory path to save the results.'),
+    )
+    parser.add_argument(
+        f'--{K.MODE}',
+        default='system', type=str, choices=['system', 'light', 'dark'],
+        help=('The light/dark mode flag.'),
+    )
+    parser.add_argument(
+        f'--{K.THEME}',
+        default='blue', type=str,
+        help=(
+            'The CustomTkinter theme color.\n'
+            'The choice is blue / dark-blue / green or json file path.'
+        ),
+    )
 
     params = vars(parser.parse_args())
 
     # set the file parameters.
-    fpath = Path(params[K.PARAM])
-    if K.PARAM in params and fpath.is_file():
-        params.update(load_yaml(fpath=fpath))
+    if params.get(K.PARAM):
+        fpath = Path(params[K.PARAM])
+        if fpath.is_file():
+            params.update(load_yaml(fpath=fpath))
 
     return params
 
@@ -185,11 +213,13 @@ if __name__ == '__main__':
     # set the parameters.
     params = set_params()
     # set the logging configuration.
+    PARAM_LOG.HANDLER[PARAM_LOG.SH] = params[K.HANDLER][0]
+    PARAM_LOG.HANDLER[PARAM_LOG.FH] = params[K.HANDLER][1]
     PARAM_LOG.LEVEL[PARAM_LOG.SH] = params[K.LEVEL][0]
     PARAM_LOG.LEVEL[PARAM_LOG.FH] = params[K.LEVEL][1]
     SetLogging(logger=LOGGER, param=PARAM_LOG)
 
-    if K.RESULT in params:
+    if params.get(K.RESULT):
         Path(params[K.RESULT]).mkdir(parents=True, exist_ok=True)
 
     main(params=params)

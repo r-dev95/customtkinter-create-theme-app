@@ -10,9 +10,9 @@ import customtkinter as ctk
 
 from lib.common.file import dump_json, load_json
 from lib.common.types import EventName as E
+from lib.common.types import ParamLog
 from lib.components.base import EventBus
 from lib.pages.base import BasePage
-from lib.settings import ParamLog
 
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(PARAM_LOG.NAME)
