@@ -5,8 +5,8 @@ from logging import getLogger
 
 import customtkinter as ctk
 
+from lib.common.types import ParamLog
 from lib.components.base import BaseComponent, EventBus
-from lib.settings import ParamLog
 
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(PARAM_LOG.NAME)

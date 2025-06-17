@@ -8,10 +8,9 @@ from logging import getLogger
 
 import customtkinter as ctk
 
-from lib.common.types import THEME_DATA_TYPE
+from lib.common.types import THEME_DATA_TYPE, ParamLog
 from lib.common.types import EventName as E
 from lib.components.base import BaseComponent, EventBus
-from lib.settings import ParamLog
 
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(PARAM_LOG.NAME)
