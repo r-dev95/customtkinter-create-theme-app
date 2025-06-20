@@ -15,13 +15,13 @@ from lib.common.types import THEME_DATA_TYPE, ParamLog, SideBarFrameName
 from lib.common.types import EventName as E
 from lib.common.types import ParamKey as K
 from lib.components.base import EventBus
+from lib.components.home import FIRST_PAGE_NAME, HomePage
+from lib.components.sample import SamplePage
+from lib.components.setting import SettingPage
 from lib.components.sidebar import SideBar
-from lib.pages.home import FIRST_PAGE_NAME, HomePage
-from lib.pages.sample import SamplePage
-from lib.pages.setting import SettingPage
 
 if TYPE_CHECKING:
-    from lib.pages.base import BasePage
+    from lib.components.base import BasePage
 
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(PARAM_LOG.NAME)

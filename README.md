@@ -2,6 +2,14 @@
     README
  -->
 
+<div align=center>
+  <img
+    src='docs/image/demo.gif'
+    alt='App Home Page Screen.'
+    width=500
+  />
+</div>
+
 # Customtkinter Create Theme App
 
 <!-- [![English](https://img.shields.io/badge/English-018EF5.svg?labelColor=d3d3d3&logo=readme)](./README.md) -->
@@ -58,7 +66,13 @@ python app.py
 
 ### Home画面
 
-![Home画面](docs/image/app_home.png)
+<div align=center>
+  <img
+    src='docs/image/app_home.png'
+    alt='App Home Page Screen.'
+    width=500
+  />
+</div>
 
 |項目                   |機能                            |
 | ---                   | ---                            |
@@ -69,7 +83,13 @@ python app.py
 
 ### 各設定画面 (Home画面以外)
 
-![setting画面](docs/image/app_setting.png)
+<div align=center>
+  <img
+    src='docs/image/app_no_home.png'
+    alt='App Home Page Screen.'
+    width=500
+  />
+</div>
 
 |項目                       |機能                               |
 | ---                       | ---                               |

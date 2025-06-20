@@ -5,6 +5,8 @@ from abc import ABC, abstractmethod
 from collections.abc import Callable
 from logging import getLogger
 
+import customtkinter as ctk
+
 from lib.common.types import ParamLog
 
 PARAM_LOG = ParamLog()
@@ -63,3 +65,24 @@ class BaseComponent(ABC):
             dict[str, Callable]: events list to register. (key: event name, val: func)
         """
         ...
+
+
+class BasePage(ctk.CTkScrollableFrame, BaseComponent):
+    """Defines the base page.
+
+    Args:
+        master (ctk.CTk): parent widget class.
+        event_bus (EventBus): :class:`EventBus` class.
+        page_name (str): page name.
+    """
+    def __init__(
+            self,
+            master: ctk.CTk,
+            event_bus: EventBus,
+            page_name: str,
+            **kwargs,
+        ) -> None:
+        ctk.CTkScrollableFrame.__init__(self=self, master=master, **kwargs)
+        BaseComponent.__init__(self=self, event_bus=event_bus)
+
+        self.configure(fg_color='transparent', label_text=page_name)
