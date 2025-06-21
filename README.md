@@ -58,6 +58,7 @@ uv sync
 ### 実行
 
 ```bash
+source .venv/bin/activate
 cd src
 python app.py
 ```
@@ -120,6 +121,15 @@ python app.py
 * `CTkFrame`をインスタンス化する際、親と自身の`fg_color`が同じ場合、CustomTkinter内部で`fg_color`の代わりに`top_fg_color`が設定される。
 
   そのため`top_fg_color`は、テーマ変更を`.configure`で反映させる本アプリでは、確認できません。
+
+## :bookmark_tabs:構成
+
+<div align=center>
+  <img
+    src='docs/image/classes.png'
+    alt='classes.'
+  />
+</div>
 
 ## ライセンス
 

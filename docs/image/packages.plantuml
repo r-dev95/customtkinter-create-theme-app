@@ -1,0 +1,43 @@
+@startuml packages
+set namespaceSeparator none
+package "app" as app {
+}
+package "lib.common.decorator" as lib.common.decorator {
+}
+package "lib.common.file" as lib.common.file {
+}
+package "lib.common.log" as lib.common.log {
+}
+package "lib.common.process" as lib.common.process {
+}
+package "lib.components.base" as lib.components.base {
+}
+package "lib.components.home" as lib.components.home {
+}
+package "lib.components.sample" as lib.components.sample {
+}
+package "lib.components.setting" as lib.components.setting {
+}
+package "lib.components.sidebar" as lib.components.sidebar {
+}
+package "lib.template" as lib.template {
+}
+app --> lib.common.decorator
+app --> lib.common.file
+app --> lib.common.log
+app --> lib.components.base
+app --> lib.components.home
+app --> lib.components.sample
+app --> lib.components.setting
+app --> lib.components.sidebar
+lib.common.decorator --> lib.common.file
+lib.common.file --> lib.common.process
+lib.components.home --> lib.common.file
+lib.components.home --> lib.components.base
+lib.components.sample --> lib.components.base
+lib.components.setting --> lib.components.base
+lib.components.sidebar --> lib.components.base
+lib.template --> lib.common.decorator
+lib.template --> lib.common.file
+lib.template --> lib.common.log
+@enduml
