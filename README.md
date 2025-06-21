@@ -2,6 +2,9 @@
     README
  -->
 
+<!-- =============================================================================== -->
+<!-- project image -->
+<!-- =============================================================================== -->
 <div align=center>
   <img
     src='docs/image/demo.gif'
@@ -12,6 +15,9 @@
 
 # Customtkinter Create Theme App
 
+<!-- =============================================================================== -->
+<!-- badge -->
+<!-- =============================================================================== -->
 <!-- [![English](https://img.shields.io/badge/English-018EF5.svg?labelColor=d3d3d3&logo=readme)](./README.md) -->
 <!-- [![Japanese](https://img.shields.io/badge/Japanese-018EF5.svg?labelColor=d3d3d3&logo=readme)](./README_JA.md) -->
 [![Japanese](https://img.shields.io/badge/Japanese-018EF5.svg?labelColor=d3d3d3&logo=readme)](./README.md)
@@ -25,6 +31,9 @@
 [![Pytest](https://img.shields.io/badge/Pytest-0A9EDC.svg?labelColor=d3d3d3&logo=pytest)](https://github.com/pytest-dev/pytest)
 [![Pydantic](https://img.shields.io/badge/Pydantic-ff0055.svg?labelColor=d3d3d3&logo=pydantic&logoColor=ff0055)](https://github.com/pydantic/pydantic)
 
+<!-- =============================================================================== -->
+<!-- overview -->
+<!-- =============================================================================== -->
 `CustomTkinter`のテーマファイルを作成するGUIアプリです。
 
 `CustomTkinter`では下記のように予め用意されたテーマを使用できます。
@@ -36,33 +45,9 @@ import customtkinter as ctk
 ctk.set_default_color_theme(color_string='blue') # blue, dark-blue, green
 ```
 
-## Getting started
-
-### githubからインストール
-
-```bash
-git clone https://github.com/r-dev95/customtkinter-create-theme-app.git
-```
-
-### 仮想環境の構築
-
-`uv`がインストールされていることが前提です。
-
-pythonの開発環境がまだ整っていない方は、[こちら](https://github.com/r-dev95/env-python)。
-
-```bash
-cd customtkinter-create-theme-app/
-uv sync
-```
-
-### 実行
-
-```bash
-source .venv/bin/activate
-cd src
-python app.py
-```
-
+<!-- =============================================================================== -->
+<!-- screen and feature -->
+<!-- =============================================================================== -->
 ## 画面と機能
 
 ### Home画面
@@ -100,28 +85,59 @@ python app.py
 
 ※カラー設定の場合、左のテキストエリアがライトモード用、右がダークモード用です。
 
+<!-- =============================================================================== -->
+<!-- How to Use -->
+<!-- =============================================================================== -->
 ## 使い方
 
-* Home画面の選択ボタンを押して、ベースとなるテーマファイルを選択します。
+### インストール
+
+```bash
+git clone https://github.com/r-dev95/customtkinter-create-theme-app.git
+```
+
+### 仮想環境の構築
+
+`uv`がインストールされていることが前提です。
+
+pythonの開発環境がまだ整っていない方は、[こちら](https://github.com/r-dev95/env-python)。
+
+```bash
+cd customtkinter-create-theme-app/
+uv sync
+```
+
+### 実行
+
+```bash
+source .venv/bin/activate
+cd src
+python app.py
+```
+
+- Home画面の選択ボタンを押して、ベースとなるテーマファイルを選択します。
 
   選択したテーマファイルに応じて、各ウィジェットの設定画面が生成されます。
 
-* 各ウィジェットの設定画面で好みのテーマ設定を行います。
+- 各ウィジェットの設定画面で好みのテーマ設定を行います。
 
   設定はリアルタイムにサンプル画面(画面右)もしくは本アプリ自体に反映され、確認ができます。
 
-* 設定が終わったら、Home画面の保存ボタンを押して、テーマファイルを作成します。
+- 設定が終わったら、Home画面の保存ボタンを押して、テーマファイルを作成します。
 
-## 補足
+### 補足
 
-* `CTk`の設定は、サンプル画面ではなく本アプリ自体に反映されます。
-* `DropdownMenu`の設定は、`CTkOptionMenu`と`CTkComboBox`に反映されます。
-* `CTkToplevel`の設定は、サンプル画面の`Open Top Level Window`ボタンを押して、ウィンドウを表示させて確認してください。
-* `***_disabled`の設定は、`Disabled Sample`トグルボタンを押して確認してください。
-* `CTkFrame`をインスタンス化する際、親と自身の`fg_color`が同じ場合、CustomTkinter内部で`fg_color`の代わりに`top_fg_color`が設定される。
+- `CTk`の設定は、サンプル画面ではなく本アプリ自体に反映されます。
+- `DropdownMenu`の設定は、`CTkOptionMenu`と`CTkComboBox`に反映されます。
+- `CTkToplevel`の設定は、サンプル画面の`Open Top Level Window`ボタンを押して、ウィンドウを表示させて確認してください。
+- `***_disabled`の設定は、`Disabled Sample`トグルボタンを押して確認してください。
+- `CTkFrame`をインスタンス化する際、親と自身の`fg_color`が同じ場合、CustomTkinter内部で`fg_color`の代わりに`top_fg_color`が設定される。
 
   そのため`top_fg_color`は、テーマ変更を`.configure`で反映させる本アプリでは、確認できません。
 
+<!-- =============================================================================== -->
+<!-- Structure -->
+<!-- =============================================================================== -->
 ## :bookmark_tabs:構成
 
 <div align=center>
@@ -131,6 +147,9 @@ python app.py
   />
 </div>
 
+<!-- =============================================================================== -->
+<!-- License -->
+<!-- =============================================================================== -->
 ## ライセンス
 
 本リポジトリは、[MIT License](LICENSE)に基づいてライセンスされています。
