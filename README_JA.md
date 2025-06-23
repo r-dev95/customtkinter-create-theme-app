@@ -26,13 +26,13 @@
 [![Pytest](https://img.shields.io/badge/Pytest-0A9EDC.svg?labelColor=d3d3d3&logo=pytest)](https://github.com/pytest-dev/pytest)
 [![Pydantic](https://img.shields.io/badge/Pydantic-ff0055.svg?labelColor=d3d3d3&logo=pydantic&logoColor=ff0055)](https://github.com/pydantic/pydantic)
 
-This is a GUI app to create CustomTkinter theme files.
+CustomTkinterのテーマファイルを作成するGUIアプリです。
 
-With this app, you can easily create your own theme files while checking the widget theme in real time.
+本アプリでは、ウィジェットのテーマをリアルタイムに確認しながら、テーマファイルを簡単に自作できます。
 
 > [!note]
-> CustomTkinter allows you to use pre-prepared themes.
-> You can also use your own themes by specifying the file path.
+> CustomTkinterでは、予め用意されたテーマを使用できます。
+> またファイルパスを指定することで、自作テーマも使用できます。
 >
 > ```python
 > import customtkinter as ctk
@@ -54,12 +54,12 @@ With this app, you can easily create your own theme files while checking the wid
   />
 </div>
 
-|Item                     |Features                              |
-| ---                     | ---                                  |
-|Light/Dark toggle button |Light/dark mode toggle.               |
-|Sidebar button (Home)    |Display the Home page.                |
-|Select button            |Select the base theme file.           |
-|Save button              |Save the file with the theme you set. |
+|項目                    |機能                            |
+| ---                    | ---                            |
+|Light/Darkトグルボタン  |ライト/ダークモードの切り替え。 |
+|サイドバーボタン (Home) |Homeページの表示。              |
+|選択ボタン              |ベースのテーマファイルの選択。  |
+|保存ボタン              |設定したテーマのファイル保存。  |
 
 ### Setting page (Other than the Home page)
 
@@ -71,13 +71,13 @@ With this app, you can easily create your own theme files while checking the wid
   />
 </div>
 
-|Item                                   |Features                                     |
-| ---                                   | ---                                         |
-|Sidebar buttons (Other than Home)      |Display the settings page of each widget.    |
-|Each text area (center of screen)      |Set the widget theme.                        |
-|Each widget (right side of the screen) |Display samples according to theme settings. |
+|項目                        |機能                               |
+| ---                        | ---                               |
+|サイドバーボタン (Home以外) |各ウィジェットの設定ページの表示。 |
+|各テキストエリア (画面中央) |ウィジェットテーマの設定。         |
+|各ウィジェット (画面右)     |テーマ設定に応じたサンプルの表示。 |
 
-※For color, the text area on the left is for light mode and the one on the right is for dark mode.
+※カラーの場合、左のテキストエリアがライトモード用、右がダークモード用です。
 
 <!-- ============================================================ -->
 <!-- Usage -->
@@ -92,9 +92,9 @@ git clone https://github.com/r-dev95/customtkinter-create-theme-app.git
 
 ### Build virtual environment
 
-You need to install `uv`.
+`uv`がインストールされていることが前提です。
 
-If you don't have a python development environment yet, see [here](https://github.com/r-dev95/env-python).
+pythonの開発環境がまだ整っていない方は、[こちら](https://github.com/r-dev95/env-python)。
 
 ```bash
 cd customtkinter-create-theme-app/
@@ -108,25 +108,25 @@ cd src
 uv run python app.py
 ```
 
-- Press the Select button on the Home page to select the base theme file.
+- Homeページの選択ボタンを押して、ベースとなるテーマファイルを選択します。
 
-  Depending on the theme file you select, a settings page for each widget will be generated.
+  選択したテーマファイルに応じて、各ウィジェットの設定ページが生成されます。
 
-- You set the theme on each widget's settings page.
+- 各ウィジェットの設定ページで好みのテーマ設定を行います。
 
-  You can check the settings in real time on the sample page (right side of the screen) or in the app itself.
+  サンプルページ(画面右)または本アプリ自体に、設定はリアルタイムに反映され確認ができます。
 
-- Once you have finished the settings, press the Save button on the Home page to create the theme file.
+- 設定が終わったら、Homeページの保存ボタンを押して、テーマファイルを作成します。
 
 > [!note]
 >
-> - The `CTk` setting is reflected in this app itself, not the sample page.
-> - The settings of `DropdownMenu` are reflected in `CTkOptionMenu` and `CTkComboBox`.
-> - To check the `CTkToplevel` settings, click the `Open Top Level Window` button on the sample page to display the window.
-> - To check the `***_disabled` settings, press the `Disabled Sample` toggle button.
-> - When instantiating a `CTkFrame`, if the parent's and its `fg_color` are the same, `top_fg_color` will be set instead of `fg_color` inside CustomTkinter.
+> - `CTk`の設定は、サンプルページではなく本アプリ自体に反映されます。
+> - `DropdownMenu`の設定は、`CTkOptionMenu`と`CTkComboBox`に反映されます。
+> - `CTkToplevel`の設定は、サンプルページの`Open Top Level Window`ボタンを押して、ウィンドウを表示させて確認してください。
+> - `***_disabled`の設定は、`Disabled Sample`トグルボタンを押して確認してください。
+> - `CTkFrame`をインスタンス化する際、親と自身の`fg_color`が同じ場合、CustomTkinter内部で`fg_color`の代わりに`top_fg_color`が設定される。
 >
->   Therefore, `top_fg_color` cannot be checked in this app, where theme changes are reflected in `.configure`.
+>   そのため`top_fg_color`は、テーマ変更を`.configure`で反映させる本アプリでは、確認できません。
 
 <!-- ============================================================ -->
 <!-- Structure -->
@@ -145,4 +145,4 @@ uv run python app.py
 <!-- ============================================================ -->
 ## License
 
-This repository is licensed under the [MIT License](LICENSE).
+本リポジトリは、[MIT License](LICENSE)に基づいてライセンスされています。
