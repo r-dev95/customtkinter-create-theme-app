@@ -12,7 +12,7 @@
 <!-- ============================================================ -->
 <!-- Overview -->
 <!-- ============================================================ -->
-# Overview
+# :book:Overview
 
 [![English](https://img.shields.io/badge/English-018EF5.svg?labelColor=d3d3d3&logo=readme)](./README.md)
 [![Japanese](https://img.shields.io/badge/Japanese-018EF5.svg?labelColor=d3d3d3&logo=readme)](./README_JA.md)
@@ -42,7 +42,7 @@ CustomTkinterのテーマファイルを作成するGUIアプリです。
 <!-- ============================================================ -->
 <!-- Features -->
 <!-- ============================================================ -->
-## Features
+## :desktop_computer:Features
 
 ### Home page
 
@@ -82,7 +82,7 @@ CustomTkinterのテーマファイルを作成するGUIアプリです。
 <!-- ============================================================ -->
 <!-- Usage -->
 <!-- ============================================================ -->
-## Usage
+## :keyboard:Usage
 
 ### Install
 
@@ -143,6 +143,6 @@ uv run python app.py
 <!-- ============================================================ -->
 <!-- License -->
 <!-- ============================================================ -->
-## License
+## :key:License
 
 本リポジトリは、[MIT License](LICENSE)に基づいてライセンスされています。
